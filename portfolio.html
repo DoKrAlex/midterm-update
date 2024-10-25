@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio - Alex Do's Website</title>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Alex Do's Personal Website</h1>
+        <button id="menu-toggle">Toggle Menu</button>
+        <nav id="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="projects-container">
+            <ul id="project-list">
+                <!-- Projects will be loaded here dynamically from CSV -->
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const navbar = document.getElementById('navbar');
+            if (navbar.style.display === 'none' || navbar.style.display === '') {
+                navbar.style.display = 'block';
+            } else {
+                navbar.style.display = 'none';
+            }
+        });
+
+        // Function to parse CSV and display portfolio projects
+        async function loadCSV() {
+            const response = await fetch('portfolio.csv');
+            const data = await response.text();
+            const rows = data.split('\n').slice(1); // Skip the header row
+            const projectList = document.getElementById('project-list');
+
+            rows.forEach(row => {
+                const [name, description, link] = row.split(',');
+
+                // Create HTML elements dynamically
+                const listItem = document.createElement('li');
+                const projectLink = document.createElement('a');
+                projectLink.href = link.trim();
+                projectLink.textContent = name.trim();
+                projectLink.target = '_blank'; // Open in new tab
+
+                const projectDescription = document.createElement('p');
+                projectDescription.textContent = description.trim();
+
+                listItem.appendChild(projectLink);
+                listItem.appendChild(projectDescription);
+
+                projectList.appendChild(listItem);
+            });
+        }
+
+        // Load CSV file on page load
+        window.onload = loadCSV;
+    </script>
+</body>
+</html>

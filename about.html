@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>About - Alex Do's Website</title>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Alex Do's Personal Website</h1>
+        <button id="menu-toggle">Toggle Menu</button>
+        <nav id="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Hello! My name is Alex, and I am a computer science major at the University of Memphis. 
+            I have a strong passion for technology and its applications in solving real-world problems. 
+            In addition to my studies, I actively participate in the Anime & Gaming Association, 
+            where I engage with fellow enthusiasts and explore the latest trends in gaming and anime. 
+            Music is also a significant part of my life; I perform with the university band during basketball season, 
+            bringing energy and excitement to our games. 
+            I created this website to share my projects, interests, and experiences with you. 
+            Thank you for visiting!
+        </p>
+    </section>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const navbar = document.getElementById('navbar');
+            if (navbar.style.display === 'none' || navbar.style.display === '') {
+                navbar.style.display = 'block';
+            } else {
+                navbar.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

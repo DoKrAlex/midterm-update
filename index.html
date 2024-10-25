@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Home - Alex Do's Website</title>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Alex Do's Personal Website</h1>
+        <button id="menu-toggle">Toggle Menu</button>
+        <nav id="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section id="home">
+        <h2>Welcome</h2>
+        <p>Welcome to my personal website where I share my journey as a computer science major and my passions for music, gaming, and cosplay!</p>
+    </section>
+
+    <div style="display: flex; justify-content: center;">
+        <img src="hq720.jpg" class="img1 card-img-top" alt="sample" style="width: 25%;">
+    </div>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const navbar = document.getElementById('navbar');
+            if (navbar.style.display === 'none' || navbar.style.display === '') {
+                navbar.style.display = 'block';
+            } else {
+                navbar.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
